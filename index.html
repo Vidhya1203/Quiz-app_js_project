@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Win QUIZ </title>
+    <link rel="icon" href="https://t4.ftcdn.net/jpg/03/32/68/71/360_F_332687153_gmsohq86koOEWFYlYSI3N6xzb1zIcG88.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.14/base.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+
+<style>
+    .scoreContain{
+        display: hidden !important;
+    }
+</style>
+
+<body class="bg-gradient-to-br from-purple-800 via-purple-700 to-purple-900 h-svh p-5 lg:h-screen flex items-center justify-center text-white">
+    <div id="startDiv" class="bg-white text-gray-900 rounded-xl shadow-lg max-w-xs w-full lg:max-w-lg p-6">
+        <h1 class="text-xl font-extrabold mb-4 text-center text-blue-700">ENTER YOUR DETAILS</h1>
+        <div class="flex flex-col gap-4">
+            <input 
+                type="text" 
+                id="nameInput" 
+                placeholder="Enter your name" 
+                class="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" 
+            />
+            <input 
+                type="email" 
+                id="emailInput" 
+                placeholder="Enter your email" 
+                class="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" 
+            />
+        </div>
+        <button 
+            onclick="QuizLogin()" 
+            class="bg-blue-900 text-white font-semibold rounded-lg px-4 py-2 mt-4 hover:bg-green-600 transition duration-300 w-full">
+            START QUIZ
+        </button>
+        
+        <h1 class="text-xl mt-4 font-extrabold mb-2 text-center text-blue-900">QUIZ RULES</h1>
+        <ul class="list-disc pl-6">
+            <li>Answer each question within the given time.</li>
+            <li>Each correct answer gives you one point.</li>
+            <li>Click 'Next' to proceed after answering a question.</li>
+            <li>You can view the correct answers after completing the quiz.</li>
+        </ul>
+    </div>
+  
+    <div id="quesDiv" class="hidden bg-white text-gray-900 rounded-xl shadow-xl max-w-xs w-full lg:max-w-lg p-6 relative">
+        <p id="time" class="absolute right-6 top-2 lg:top-6 text-blue-700 font-bold text-sm"></p>
+        <h1 class="text-xl font-extrabold mt-2 mb-4 text-center text-blue-900">QUIZ APP</h1>
+        <h2 id="questionId" class="text-lg font-medium mb-6 text-center">Question</h2>
+
+      
+        <div id="ansBtns" class="flex flex-col gap-4 items-center">
+            
+        </div>
+
+       
+        <div class="flex justify-center mt-6">
+            <button 
+                id="nextbtn" 
+                class="p-3 px-6 bg-blue-700 text-white rounded-lg shadow-md font-semibold hover:bg-blue-600 transition duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed"
+                onclick="Next()">
+                NEXT
+            </button>
+        </div>
+    </div>
+
+   
+
+  
+    <div id="scoreContain" 
+        class="hidden bg-white text-gray-900 rounded-xl shadow-lg max-w-xs w-full lg:max-w-lg p-6 flex flex-col items-center min-h-[300px] max-h-[500px] overflow-y-auto">
+        <h2 class="text-xl font-extrabold mb-4 text-center text-blue-900">QUIZ COMPLETED</h2>
+        <p id="score" class="text-lg font-medium text-gray-700 mb-6"></p>
+        <button 
+            id="Rebtn" 
+            class="p-3 px-6 bg-blue-700 text-white rounded-lg shadow-md font-semibold hover:bg-blue-600 transition duration-300"
+            onclick="Restart()">
+            RESTART
+        </button>
+        <button 
+            id="viewAnswersBtn" 
+            class="p-3 px-6 mt-2 bg-gray-700 text-white rounded-lg shadow-md font-semibold hover:bg-gray-600 transition duration-300"
+            onclick="viewCorrectAnswers()">
+            VIEW CORRECT ANSWERS
+        </button>
+        <p id="crtAns" class="mt-4 w-full text-left text-gray-700"></p>
+    </div
+</body>
+
+<script src="script.js"></script>
+</html>
